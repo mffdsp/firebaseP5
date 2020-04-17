@@ -1,16 +1,27 @@
 
+
+
+
 function writeData(userTeste){
     var database =  firebase.database();
-    
+
     userTeste.forEach(element => {
-        database.ref('user' + element.code).set({
+        
+        reference = database.ref('user' + element.code);
+        reference.set({
             code: element.code,
             posX: element.x,
             posY: element.y
         });
+
+        reference.on('value', (snapshot) =>{
+            console.log("setou")
+            element.x = snapshot.val().posX;
+            element.y = snapshot.val().posY;
+        });
     });
     
-    console.log("Salvo com sucesso");
+    console.log("Salvo com sucessu");
     
 }
  
