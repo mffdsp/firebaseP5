@@ -1,5 +1,7 @@
 function Bubble(x, y, code){
 
+    console.log("cristou umas");
+    this.texto = "kkk";
     this.code = code;
     this.x = x;
     this.y = y;
@@ -12,7 +14,11 @@ function Bubble(x, y, code){
         fill(this.col);
         if(main){
           ellipse(mouseX, mouseY, this.r, this.r);
-        } else  ellipse(this.x, this.y, this.r, this.r);
+        } else  {
+          ellipse(this.x, this.y, this.r, this.r);
+          text(this.texto, this.x - 10, this.y);
+        }
+
       
     }
   

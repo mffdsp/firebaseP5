@@ -19,8 +19,21 @@ let canvasX = 700, canvasY = 400;
 let bn;
 let mainB;
 
-function setup() {
+function setup(){
 
+  readDataText();
+
+  createCanvas(0, 0);
+  bn = [new Bubble(90, 40, "c1", "Mateus"), new Bubble(140, 60, "c2", "ruan"), new Bubble(230, 30, "c3", "outro")];
+
+  readData(bn);
+  console.log("leu"); 
+  mainB = new Bubble(mouseX, mouseY, 'DONT', "DONT");
+  mainB.r = 2;
+
+}
+
+function start() {
 
   createCanvas(canvasX, canvasY);
   background(0, 0, 0);
@@ -28,23 +41,14 @@ function setup() {
   // Starts in the middle
   x = width/2;
   y = height/2;
-  
-  bn = [new Bubble(90, 40, "c1"), new Bubble(140, 60, "c2"), new Bubble(230, 30, "c3")];
 
-  // async() => {
-  //   readData(bn);
-  // }
-  readData(bn);
-
-  mainB = new Bubble(mouseX, mouseY, 'DONT');
-  mainB.r = 2;
 }
 
 let freeM = true;
 
 function draw() {
-  background(0, 0, 0);
   
+  background(255, 2, 255);  
 
   stroke(255);
   line(mouseX, mouseY, pmouseX, pmouseY);
@@ -76,7 +80,7 @@ function sizeHandler(){
 
   if(mainB.r <= maxDiameter){
     if(keyIsDown(UP_ARROW)) {
-      console.log("salvo");
+      console.log("salvou");
       mainB.r += 5;
     }
   }

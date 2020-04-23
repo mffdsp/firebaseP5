@@ -1,27 +1,38 @@
+var auth = false;
 
+async function writeData(userTeste){
 
-
-
-function writeData(userTeste){
     var database =  firebase.database();
 
-    userTeste.forEach(element => {
+    await database.ref('admteus').once('value').then(function(snapshot){
+            var data = snapshot.val();
+            auth = data.auth;
+    }).catch();
+
+    if(auth == false){
+        console.error("Permissão negada");
+        return;
+    }
+    
+    userTeste.forEach(async element => {
         
-        reference = database.ref('user' + element.code);
+        reference = await database.ref('user' + element.code);
         reference.set({
             code: element.code,
             posX: element.x,
-            posY: element.y
+            posY: element.y,
+            text: element.texto
         });
 
         reference.on('value', (snapshot) =>{
-            console.log("setou")
             element.x = snapshot.val().posX;
             element.y = snapshot.val().posY;
+            element.texto = snapshot.val().text;
         });
+        console.log("Salvo com sucessu");
+    
     });
     
-    console.log("Salvo com sucessu");
     
 }
  
@@ -30,15 +41,16 @@ function readData(userTeste){
 
     var database = firebase.database();
 
-    userTeste.forEach(element => {
+    userTeste.forEach(async element =>  {
 
-        database.ref('user' + element.code).once('value').then( function(snapshot){
+        await database.ref('user' + element.code).once('value').then( function(snapshot){
 
             var data = snapshot.val();
             element.x = data.posX;
             element.y = data.posY;
+            element.texto = data.text;
         
-        }).catch();
+        }).catch(); 
+        start(); 
     });
-    
 }

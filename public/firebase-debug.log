@@ -1,0 +1,21 @@
+[debug] [2020-04-23T03:20:00.575Z] ----------------------------------------------------------------------
+[debug] [2020-04-23T03:20:00.578Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2020-04-23T03:20:00.578Z] CLI Version:   7.11.0
+[debug] [2020-04-23T03:20:00.578Z] Platform:      linux
+[debug] [2020-04-23T03:20:00.578Z] Node Version:  v12.14.0
+[debug] [2020-04-23T03:20:00.578Z] Time:          Thu Apr 23 2020 00:20:00 GMT-0300 (Brasilia Standard Time)
+[debug] [2020-04-23T03:20:00.579Z] ----------------------------------------------------------------------
+[debug] [2020-04-23T03:20:00.579Z] 
+[debug] [2020-04-23T03:20:00.589Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-04-23T03:20:00.590Z] > authorizing via signed-in user
+[debug] [2020-04-23T03:20:00.590Z] [iam] checking project web-teus for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2020-04-23T03:20:00.592Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-04-23T03:20:00.592Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-04-23T03:20:01.749Z] <<< HTTP RESPONSE 200
+[debug] [2020-04-23T03:20:01.818Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/web-teus:testIamPermissions  
+
+[debug] [2020-04-23T03:20:27.773Z] Error: getaddrinfo ENOTFOUND cloudresourcemanager.googleapis.com
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:60:26)
+[error] 
+[error] Error: Server Error. getaddrinfo ENOTFOUND cloudresourcemanager.googleapis.com
